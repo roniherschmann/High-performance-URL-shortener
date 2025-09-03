@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  shorty:
+    build: .
+    environment:
+      - PORT=8080
+      - DB_DSN=file:/data/shorty.db?_foreign_keys=on
+      - BASE_URL=http://localhost:8080
+      - CACHE_PREWARM=100
+    ports:
+      - "8080:8080"
+    volumes:
+      - shortydata:/data
+volumes:
+  shortydata: {}
